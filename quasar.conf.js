@@ -12,6 +12,8 @@ const { configure } = require('quasar/wrappers');
 const MonacoEditorPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = configure(function (ctx) {
+  require('dotenv').config()
+
   return {
     // https://v2.quasar.dev/quasar-cli/supporting-ts
     supportTS: {
@@ -56,7 +58,16 @@ module.exports = configure(function (ctx) {
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-      publicPath: process.env.PUBLIC_PATH ?? (process.env.NODE_ENV === 'development' ? '/' : '/typesense-dashboard'),
+      // publicPath: process.env.PUBLIC_PATH ?? (process.env.NODE_ENV === 'development' ? '/' : '/typesense-dashboard'),
+      publicPath: process.env.PUBLIC_PATH ?? '/',
+      env: {
+        TS_APIKEY: process.env.TS_APIKEY,
+        TS_HOST: process.env.TS_HOST,
+        TS_PORT: process.env.TS_PORT,
+        TS_PROTOCOL: process.env.TS_PROTOCOL,
+        G_AUTH_CLIENT_ID: process.env.G_AUTH_CLIENT_ID,
+        G_AUTH_CLIENT_SECRET: process.env.G_AUTH_CLIENT_SECRET,
+      },
       // transpile: false,
 
       // Add dependencies for transpiling with Babel (Array of string/regex)
