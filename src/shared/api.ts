@@ -16,7 +16,7 @@ export class Api {
   public init({node, apiKey}: {node:NodeConfiguration, apiKey:string}):void {
     this.axiosClient = axios.create({
       baseURL: `${node.protocol}://${node.host}:${node.port}${node.path || ''}`,
-      headers: {'x-typesense-api-key': apiKey }
+      headers: {'x-typesense-api-key': apiKey, 'Access-Control-Allow-Origin':'*' }
     });
     this.typesenseClient = new Typesense.Client({
       nodes: [{

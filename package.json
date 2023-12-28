@@ -7,7 +7,11 @@
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "start": "quasar serve ./dist/spa",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@babel/runtime": "7.22.6",
@@ -29,6 +33,8 @@
     "vue-monaco": "1.2.2",
     "vue-router": "4.2.4",
     "vue-server-renderer": "2.7.14",
+    "vue-google-oauth2": "^1.5.10",
+    "vue3-google-login": "^2.0.25",
     "vuex": "4.1.0"
   },
   "devDependencies": {
@@ -39,6 +45,7 @@
     "@typescript-eslint/eslint-plugin": "6.1.0",
     "@typescript-eslint/parser": "6.1.0",
     "@vue/devtools": "6.5.0",
+    "dotenv": "^16.3.1",
     "electron": "25.3.1",
     "electron-installer-zip": "0.1.2",
     "electron-packager": "17.1.1",
